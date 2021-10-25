@@ -14,5 +14,11 @@
 <%= link_to 'Back', posts_path %>
 
 <% @comments.each do |comment| %>
-  <%= comment.author %>
+
+  <div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><%= comment.author %></h5>
+    <p class="card-text"><%= comment.body %></p>
+  </div>
+</div>
 <% end %>
