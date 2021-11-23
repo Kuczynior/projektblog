@@ -1,0 +1,14 @@
+<%= form_with(model: [@post, @post.comments.new], local:true)  do |form| %>
+    <div class="filed">
+        <%= form.label: author %>
+        <%= form.text_field: author %>
+    </div>
+    <div class="filed">
+        <%= form.label: body %>
+        <%= form.text_area: body %>
+    </div>
+    <div class="actions">
+        <%= form.submit %>
+    </div>
+    <% end %>
+    
