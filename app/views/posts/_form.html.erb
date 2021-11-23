@@ -10,6 +10,10 @@
       </ul>
     </div>
   <% end %>
+    <div class="field">
+    <%= form.label "Kategoria" %>
+    <%= form.select(:category_id, @categories.collect {|c| [c.name, c.id ]}, { :include_blank => 'Wybierz' }) %>
+  </div>
 
   <div class="field">
     <%= form.label :title %>
