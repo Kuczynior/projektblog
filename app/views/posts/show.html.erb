@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @post.title %>
@@ -8,7 +7,7 @@
 <% if @post.category.present? %>
 <p>
   <strong>Kategoria:</strong>
-  <%= @post.category.name %>
+  <%= link_to @post.cetegory.name, posts_url(category_id: @post.category.id) %>
 </p>
 <% end %>
 

@@ -1,14 +1,25 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
-
+  before_action :load_categories, only: [:new, :edit]
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    @posts =
+    if params[:category_id]
+      @posts = Post.where(category_id: params[:category_id])
+    else
+      Post.all
+    end
   end
+
 
   # GET /posts/1 or /posts/1.json
   def show
     @comments = @post.comments
+    
+  end
+
+  def load_categories
+    @categories = Category.all
   end
 
   # GET /posts/new
