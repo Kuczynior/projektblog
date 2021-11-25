@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     @posts =
     if params[:category_id]
-      @posts = Post.where(category_id: params[:category_id])
+      Post.where(category_id: params[:category_id])
     else
       Post.all
     end
@@ -77,6 +77,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :body)
+      params.require(:post).permit(:title, :body, :category_id)
     end
 end
